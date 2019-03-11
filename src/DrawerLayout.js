@@ -209,6 +209,10 @@ export default class DrawerLayout extends Component {
         if (!this._isLockedClosed() && !this._isLockedOpen()) {
             this.closeDrawer();
         }
+       if (_reactNative.Platform.OS === 'ios' && _this._isLockedOpen() ) {
+        // Ansari changes for closing the drawer if tap on overlay
+         _this.closeDrawer();
+      }
     };
 
     _emitStateChanged = (newState: string) => {
